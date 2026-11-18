@@ -1,0 +1,4 @@
+@EndUserText.label: 'Student maintenance service'
+define service ZUI_RAP_STUDENT {
+  expose ZC_RAP_STUDENT as Students;
+}

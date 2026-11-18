@@ -1,0 +1,27 @@
+managed;
+strict ( 2 );
+
+define behavior for ZI_RAP_STUDENT alias Student
+persistent table zrap_student
+lock master
+etag master LocalLastChangedAt
+{
+  create;
+  update;
+  delete;
+
+  field ( readonly, numbering : managed ) StudentUUID;
+  field ( readonly ) LocalLastChangedAt;
+  field ( mandatory ) StudentNumber, FirstName, LastName;
+
+  mapping for zrap_student
+  {
+    StudentUUID        = student_uuid;
+    StudentNumber      = student_number;
+    FirstName          = first_name;
+    LastName           = last_name;
+    Email              = email;
+    EnrollmentDate     = enrollment_date;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+}
